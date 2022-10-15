@@ -13,7 +13,7 @@ const Main = () => {
 
   useEffect(() => {
     setGlobalAtom(results);
-  }, [results, loading]);
+  }, [loading]);
 
   return (
     <Wapper>{loading && results.length === 0 ? <Loader /> : <Review />}</Wapper>

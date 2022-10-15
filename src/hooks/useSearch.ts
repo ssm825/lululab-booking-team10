@@ -57,7 +57,7 @@ const useSearch = () => {
       }
     }
     alert(
-      `${values.name}님 예약 내역이 존재하지 않습니다 \n올바른 이름 또는 핸드폰 번호를 확인해주세요.`
+      `${values.name}님 예약 내역이 존재하지 않습니다 \n이름 또는 핸드폰 번호를 확인해주세요.`
     );
     setSearchResult(initializeState);
   };
