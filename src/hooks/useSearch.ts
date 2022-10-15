@@ -33,31 +33,33 @@ const useSearch = () => {
     globalAtom: DefaultType[]
   ) => {
     event.preventDefault();
-    globalAtom.some(
-      ({
+    for (let i = 0; i < globalAtom.length; i++) {
+      const {
         id,
         user_name,
         user_phone,
         booking_date,
         booking_time,
         categories,
-      }) => {
-        if (user_name === values.name && user_phone === values.phone) {
-          return setSearchResult(() => ({
-            isResult: true,
-            result: {
-              id,
-              user_name,
-              user_phone,
-              booking_date,
-              booking_time,
-              categories,
-            },
-          }));
-        }
+      } = globalAtom[i];
+      if (user_name === values.name && user_phone === values.phone) {
+        return setSearchResult(() => ({
+          isResult: true,
+          result: {
+            id,
+            user_name,
+            user_phone,
+            booking_date,
+            booking_time,
+            categories,
+          },
+        }));
       }
+    }
+    alert(
+      `${values.name}님 예약 내역이 존재하지 않습니다 \n올바른 이름 또는 핸드폰 번호를 확인해주세요.`
     );
-    return setSearchResult(initializeState);
+    setSearchResult(initializeState);
   };
 
   return { searchResult, handleInput, handleSerch };
