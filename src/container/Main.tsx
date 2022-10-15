@@ -1,10 +1,21 @@
 import React from 'react';
-
 import styled from 'styled-components';
-import Modal from '../components/Modal';
+import useFetch from '../hooks/useFetch';
+
+import Loader from '../components/Loader';
+import Review from './Review';
 
 const Main = () => {
-  return <Wapper></Wapper>;
+  const { results, loading } = useFetch();
+  return (
+    <Wapper>
+      {loading && results.length === 0 ? (
+        <Loader />
+      ) : (
+        <Review results={results} />
+      )}
+    </Wapper>
+  );
 };
 
 export default Main;

@@ -4,12 +4,20 @@ import styled from 'styled-components';
 interface Props {
   type: string;
   placeholder: string;
+  name: string;
+  handleInput: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const InputBox = ({ type, placeholder }: Props) => {
+const InputBox = ({ type, placeholder, name, handleInput }: Props) => {
   return (
     <Wapper>
-      <Content type={type} placeholder={placeholder} required />
+      <Content
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        required
+        onChange={handleInput}
+      />
     </Wapper>
   );
 };
