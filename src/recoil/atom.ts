@@ -1,9 +1,9 @@
 import { atom } from 'recoil';
 import { DefaultType } from '../types';
 
-export const results = atom<DefaultType[]>({
-  key: 'results',
+export const globalState = atom<DefaultType[]>({
+  key: 'globalState',
   default: [],
 });
 
-export default results;
+export default globalState;

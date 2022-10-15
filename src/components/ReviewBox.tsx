@@ -7,20 +7,22 @@ import globalState from '../recoil/atom';
 import InputBox from './InputBox';
 import Button from './Button';
 import Result from './Result';
-import { SearchType } from '../types';
+import { SearchType, DefaultType } from '../types';
 
 interface Props {
   searchResult: SearchType;
   handleInput: React.ChangeEventHandler<HTMLInputElement>;
-  handleSerch: React.FormEventHandler<HTMLFormElement>;
+  handleSerch: (
+    event: React.FormEvent<HTMLFormElement>,
+    globalAtom: DefaultType[]
+  ) => void;
 }
 
 const ReviewBox = ({ searchResult, handleInput, handleSerch }: Props) => {
-  const test = useRecoilValue(globalState);
-  console.log(test);
+  const globalAtom = useRecoilValue(globalState);
   return (
     <>
-      <Form onSubmit={handleSerch}>
+      <Form onSubmit={event => handleSerch(event, globalAtom)}>
         <Title>조회</Title>
         {INPUT_DATA.map(item => (
           <InputBox
