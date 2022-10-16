@@ -1,10 +1,10 @@
 # lululab-booking-taem10
 
-## # 프로젝트 개요
+## 프로젝트 개요
 
 - 진행기간 : 10/15 ~ 10/17
 - 과제주관 : lululab
-- 참여명단 : 정훈조, 서수민 장종현
+- 참여명단 : 서수민, 장종현, 정훈조
 - DEMO : [DEMO](https://sensational-strudel-86bb09.netlify.app/)
   <br/>
   <br/>
@@ -13,8 +13,9 @@
 
 - 기술스택 : React / TypeScript / Recoil
 
-- 동일한 상태값으로 캘린더 / 예약 / 조회 사용함으로 전역으로 관리하고자 recoil 사용
-  - 마운트시 상수 데이터 전역 상태인 globalState 업데이트
+- 동일한 상태 값으로 캘린더 / 예약 / 조회 사용함으로 전역으로 관리하고자 recoil 사용
+  - 마운트 시 상수 데이터 전역 상태인 globalState 업데이트
+    - Mock Data를 활용하여 개발 완료하였으나 배포 시 경로 오류로 인해 fetch가 되지 않아 상수 처리하였습니다.
   - 해당 state가 필요한 컴포넌트에서 호출하여 사용
 
 ```js
@@ -57,7 +58,7 @@ const Modal = ({ children }: Props) => {
 
 ### 병원 예약 가능 목록
 
-- #### fullcalendar 라이브러리 사용 하여 구현<br/>
+- fullcalendar 라이브러리 사용 하여 구현<br/>
 
 ```js
 ///Calendar.tsx
@@ -84,48 +85,43 @@ const Modal = ({ children }: Props) => {
 
 ### 예약 등록 페이지
 
-- 캘린더 날짜 클릭할시 예약가능한 모달 마운트<br/>
-- 예약 불가능한 시간 , 중복예약 불가하게 구현
+- 캘린더 날짜 클릭 시 예약 가능한 모달을 마운트<br/>
+- 예약 불가능한 시간, 중복예약 불가하게 구현
 
 ```js
 /// useRegistration.ts
 const handleReservation = (
-  event: React.FormEvent<HTMLFormElement>,
-  globalAtom: DefaultType[],
-  selectDate: string,
-  reserveHandler: () => void
-) => {
-  event.preventDefault();
-  for (let i = 0; i < globalAtom.length; i++) {
-    const {
-      id,
-      user_name,
-      user_phone,
-      booking_date,
-      booking_time,
-      categories,
-    } = globalAtom[i];
+    event: React.FormEvent<HTMLFormElement>,
+    globalAtom: DefaultType[],
+    selectDate: string,
+    reserveHandler: () => void
+  ) => {
+    event.preventDefault();
+    for (let i = 0; i < globalAtom.length; i++) {
+      const { user_name, user_phone, booking_date, booking_time } =
+        globalAtom[i];
 
-    if (booking_date === selectDate && booking_time === time) {
-      alert(`${time}에는 예약할 수 없습니다. \n다른 시간을 선택해 주세요.`);
-      return;
+      if (booking_date === selectDate && booking_time === time) {
+        alert(`${time}에는 예약할 수 없습니다. \n다른 시간을 선택해 주세요.`);
+        return;
+      }
+      if (user_name === values.name && user_phone === values.phone) {
+        alert(`${values.name}님은 중복 예약입니다.`);
+        return;
+      }
     }
-    if (user_name === values.name && user_phone === values.phone) {
-      alert(`${values.name}님은 중복 예약입니다.`);
-      return;
-    }
-  }
-  const userInfo = {
-    id: 220181,
-    user_name: values.name,
-    user_phone: values.phone,
-    booking_date: selectDate,
-    booking_time: time,
-    categories: category,
+    const userInfo = {
+      id: 220181,
+      user_name: values.name,
+      user_phone: values.phone,
+      booking_date: selectDate,
+      booking_time: time,
+      categories: category,
+    };
+    setUser(prev => [...prev, userInfo]);
+    alert(`${values.name}님 예약 완료되셨습니다!`);
+    reserveHandler();
   };
-  setUser(prev => [...prev, userInfo]);
-  reserveHandler();
-};
 ```
 
 <br/>
@@ -212,7 +208,7 @@ const handleSerch = (
 
 <br/>
 
-# 팀 컨밴션
+## 팀 컨밴션
 
 git commit
 
@@ -226,27 +222,21 @@ branch
 
 <br/>
 
-# 테스크
+## 테스크
 
 서수민 : 예약 등록 기능 구현, 목데이터 설계
 
-정종현 : 예약 목록 리스트(캘린더) 기능 구현
+장종현 : 예약 목록 리스트(캘린더) 기능 구현
 
 정훈조 : 예약 조회 기능 구현 , 초기세팅, 재사용 컴포넌트(모달, 로더, 버튼), recoil 세팅
 
 <br/>
 
-# 목데이터 예시
+## 목데이터
+<details>
+<summary>예시</summary>
 
 ```js
-// id, name, date, time
-// 예약을 누르면 reservation에 담기게, 프론트에서는 reservation만 조회
-
-[달력 위에 표시]
-점심 시간 12:00 ~ 13:00
-평일 진료 09:00 ~ 17:00 - 최대 8명
-주말 휴무
-9시 / 10시 / 11시 / 13시/ 14시 / 15시 / 16시 / 17시
 
 "categories": ["진료", "검진", "기타"]
 
@@ -279,15 +269,28 @@ branch
   ]
 }
 ```
-
-<h2>고민했던 부분</h2>
-
-<p>장종현 : calendar상에 출력되는 events중 categories(검진, 진료, 기타)를 보다 직관적이게 색깔로 구분 하고 싶었지만, fullcalendar library를 빠르게 익히다보니 디테일하게 접근하지 못한 것이 아쉽다.</p>
+</details>
 
 <br/>
 
-<p>서수민 : </p>
+## 고민했던 부분 및 느낀 점
 
 <br/>
 
-<p>정훈조 : 개발경험을 향상 시킬 수 있는 TypeScript 및  전역 상태관리의 Recoil 사용함으로 더 생산적인 개발을 할수 있었습니다. 또한 팀 내 트러블 슈팅 발생 시 팀원 모두 문제 해결을 위해 소통 하였고 즐거운 경험 이었습니다.</p>
+서수민
+- 커스텀 한 selectbox의 style을 더 효율적으로 구현하지 못해 아쉬웠으나 Recoil로 전역 상태를 관리할 수 있는 법을 배우고 활용할 수 있어서 좋았습니다.
+
+<br/>
+
+장종현
+- calendar상에 출력되는 events중 categories(검진, 진료, 기타)를 보다 직관적이게 색깔로 구분 하고 싶었지만, fullcalendar library를 빠르게 익히다보니 디테일하게 접근하지 못한 것이 아쉽다.
+
+<br/>
+
+정훈조
+- 개발 경험을 향상할 수 있는 TypeScript 및 전역 상태관리의 Recoil 사용함으로 더 생산적인 개발을 할 수 있었습니다. 또한 팀 내 트러블 슈팅 발생 시 팀원 모두 문제 해결을 위해 소통하였고 즐거운 경험이었습니다.
+
+<br/>
+
+
+
