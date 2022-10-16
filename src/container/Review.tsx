@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Modal from '../components/Modal';
-import ReviewBox from '../components/ReviewBox';
-import useSearch from '../hooks/useSearch';
+import Modal from 'components/Modal';
+import ReviewBox from 'components/ReviewBox';
+import useSearch from 'hooks/useSearch';
 
 interface ReviewProps {
   checkHandler: () => void;

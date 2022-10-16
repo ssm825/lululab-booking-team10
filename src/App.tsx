@@ -1,11 +1,11 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from './styles/GlobalStyle';
-import theme from './styles/theme';
+import GlobalStyle from 'styles/GlobalStyle';
+import theme from 'styles/theme';
 
-import Layout from './layout/Layout';
-import Main from './container/Main';
+import Layout from 'layout/Layout';
+import Main from 'container/Main';
 
 function App() {
   return (

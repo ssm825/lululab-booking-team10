@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import fetch from '../api/fetch';
-import { DefaultType } from '../types';
+import fetch from 'api/fetch';
+import { DefaultType } from 'types';
 
 const initializeState: { results: DefaultType[]; loading: boolean } = {
   results: [],
@@ -14,7 +14,7 @@ const useFetch = () => {
     try {
       const data = await fetch();
       setItems(({ results }) => ({
-        results: [...results, ...data.reservation],
+        results: [...results, ...data.data],
         loading: false,
       }));
     } catch (error) {

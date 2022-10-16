@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DefaultType, SearchType } from '../types';
+import { DefaultType, SearchType } from 'types';
 
 const initializeState: SearchType = {
   isResult: false,
