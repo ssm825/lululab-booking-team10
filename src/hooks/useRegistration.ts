@@ -1,19 +1,7 @@
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import globalState from '../recoil/atom';
-import { DefaultType, SearchType } from './../types/index';
-
-const initializeState: SearchType = {
-  isResult: false,
-  result: {
-    id: 0,
-    user_name: '',
-    user_phone: '',
-    booking_date: '',
-    booking_time: '',
-    categories: '',
-  },
-};
+import globalState from 'recoil/atom';
+import { DefaultType } from 'types';
 
 const valueState = {
   name: '',
@@ -24,7 +12,6 @@ const valueState = {
 const useRegistration = () => {
   const setUser = useSetRecoilState(globalState);
 
-  const [reserve, setReserve] = useState(initializeState);
   const [values, setValues] = useState(valueState);
   const [category, setCategory] = useState('');
   const [time, setTime] = useState('');
@@ -81,7 +68,6 @@ const useRegistration = () => {
     handleReservation,
     category,
     time,
-    reserve,
   };
 };
 

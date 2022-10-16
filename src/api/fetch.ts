@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL } from './utile';
+import { URL } from './utils';
 
 const fetch = async () => {
   try {
