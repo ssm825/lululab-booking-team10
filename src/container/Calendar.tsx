@@ -22,19 +22,19 @@ const Calendar: React.FC = () => {
     return obj;
   });
 
-  const CheckHandler = () => {
+  const checkHandler = () => {
     setCheck(prev => !prev);
   };
 
-  const ReserveHandler = () => {
+  const reserveHandler = () => {
     setReserve(prev => !prev);
   };
   return (
     <DashboardContainer>
       {reserve && (
-        <Reservation selectDate={selectDate} reserveHandler={ReserveHandler} />
+        <Reservation selectDate={selectDate} reserveHandler={reserveHandler} />
       )}
-      {check && <Review checkHandler={CheckHandler} />}
+      {check && <Review checkHandler={checkHandler} />}
       <FullCalendar
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
@@ -50,14 +50,14 @@ const Calendar: React.FC = () => {
         editable={true}
         dateClick={(info: DateClickArg) => {
           setSelectDate(info.dateStr);
-          ReserveHandler();
+          reserveHandler();
         }}
       />
       <ButtonWrapper>
-        <CheckReservationButton onClick={CheckHandler}>
+        <CheckReservationButton onClick={checkHandler}>
           예약조회
         </CheckReservationButton>
-        <ReserveButton onClick={ReserveHandler}>예약하기</ReserveButton>
+        <ReserveButton onClick={reserveHandler}>예약하기</ReserveButton>
       </ButtonWrapper>
     </DashboardContainer>
   );
