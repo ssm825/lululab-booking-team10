@@ -31,28 +31,17 @@ const Calendar: React.FC = () => {
   };
   return (
     <DashboardContainer>
-      <ModalWapper>
-        {reserve && (
-          <Reservation
-            selectDate={selectDate}
-            reserveHandler={reserveHandler}
-          />
-        )}
-        {check && <Review checkHandler={checkHandler} />}
-      </ModalWapper>
+      {reserve && selectDate && (
+        <Reservation selectDate={selectDate} reserveHandler={reserveHandler} />
+      )}
+      {check && <Review checkHandler={checkHandler} />}
       <FullCalendar
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
         dayMaxEventRows={true}
-        // views: {
-        //   timeGrid: {
-        //     dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
-        //   }
-        // moreLinkClick="popover"
         events={Data}
         eventColor="#EFB33F"
         selectable={true}
-        // editable={true}
         dateClick={(info: DateClickArg) => {
           setSelectDate(info.dateStr);
           reserveHandler();
