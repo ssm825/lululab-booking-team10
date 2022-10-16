@@ -20,6 +20,7 @@ interface Props {
 
 const ReviewBox = ({ searchResult, handleInput, handleSerch }: Props) => {
   const globalAtom = useRecoilValue(globalState);
+
   return (
     <>
       <Form onSubmit={event => handleSerch(event, globalAtom)}>

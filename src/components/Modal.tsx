@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element[] | JSX.Element;
 }
 
 const Modal = ({ children }: Props) => {
@@ -56,7 +56,6 @@ const Wapper = styled.div`
 
 const Content = styled.div`
   width: 434px;
-  height: 469px;
   padding: 30px;
   border-radius: 3px;
 
