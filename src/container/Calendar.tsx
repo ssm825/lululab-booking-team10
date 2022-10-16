@@ -31,10 +31,15 @@ const Calendar: React.FC = () => {
   };
   return (
     <DashboardContainer>
-      {reserve && (
-        <Reservation selectDate={selectDate} reserveHandler={reserveHandler} />
-      )}
-      {check && <Review checkHandler={checkHandler} />}
+      <ModalWapper>
+        {reserve && (
+          <Reservation
+            selectDate={selectDate}
+            reserveHandler={reserveHandler}
+          />
+        )}
+        {check && <Review checkHandler={checkHandler} />}
+      </ModalWapper>
       <FullCalendar
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
@@ -61,6 +66,12 @@ const Calendar: React.FC = () => {
 export default Calendar;
 const DashboardContainer = styled.div`
   margin-top: 20px;
+`;
+
+const ModalWapper = styled.div`
+  position: fixed;
+  z-index: 999;
+  left: 0;
 `;
 
 const ButtonWrapper = styled.div`
