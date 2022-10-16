@@ -8,7 +8,7 @@ import SelectBox from '../components/SelectBox';
 
 interface ReservationProp {
   selectDate: string | undefined;
-  ReserveHandler: () => void;
+  reserveHandler: () => void;
 }
 
 const Reservation = (props: ReservationProp) => {
@@ -38,7 +38,7 @@ const Reservation = (props: ReservationProp) => {
       </Form>
       <ButtonWapper>
         <Button title="예약" />
-        <CloseButton title="취소" onClick={props.ReserveHandler}>
+        <CloseButton title="취소" onClick={props.reserveHandler}>
           취소
         </CloseButton>
       </ButtonWapper>

@@ -39,7 +39,11 @@ const Calendar: React.FC = () => {
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
         dayMaxEventRows={true}
-        moreLinkClick="popover"
+        // views: {
+        //   timeGrid: {
+        //     dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
+        //   }
+        // moreLinkClick="popover"
         events={Data}
         eventColor="#EFB33F"
         selectable={true}
