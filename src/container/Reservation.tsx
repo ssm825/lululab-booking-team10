@@ -143,13 +143,14 @@ const SelectedDate = styled.div`
 `;
 const SelectedTime = styled.div`
   width: 70%;
+  z-index: 1;
 `;
 
 const ButtonWapper = styled.div`
   display: flex;
   justify-content: center;
 
-  margin-top: 200px;
+  margin-top: 150px;
   padding: 10px 0;
 
   button {

@@ -60,7 +60,7 @@ const SelectBox = ({
       <OptionContent isShow={!toggle}>
         {option.map(data => (
           <Option
-            key={data}
+            key={data.length}
             onClick={event => {
               showOption(event, title);
             }}
@@ -80,6 +80,7 @@ const Continer = styled.div`
   width: 100%;
   ${({ theme }) => theme.inputStyle};
   z-index: 10;
+  user-select: none;
 `;
 const TitleContent = styled.div`
   display: flex;
@@ -92,19 +93,10 @@ const TitleContent = styled.div`
 const OptionContent = styled.div<{ isShow: boolean }>`
   display: ${props => (props.isShow ? 'none' : 'block')};
   width: 100%;
-
   border-radius: 4px;
   line-height: 45px;
   box-shadow: 0 10px 30px rgba(30, 30, 30, 0.1);
   background-color: ${({ theme }) => theme.colors.white};
-
-  /* :nth-child(1) {
-    height: 195px;
-    overflow-y: scroll;
-  }
-  :nth-child(2) {
-    z-index: 50;
-  } */
 `;
 
 const Title = styled.div``;
