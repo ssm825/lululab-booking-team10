@@ -11,9 +11,14 @@ const Reservation = () => {
     <Modal>
       <Form>
         <Title>예약</Title>
-        <InputBox type="text" placeholder="이름을 입력해주세요" />
-        <InputBox type="number" placeholder="핸드폰 번호를 입력해주세요" />
-        <InputBox type="email" placeholder="이메일을 입력해주세요" />
+        {INPUT_DATA.map(item => (
+          <InputBox
+            key={item.placeholder}
+            type={item.type}
+            placeholder={item.placeholder}
+            name={item.name}
+          />
+        ))}
         <SelectBox title="예약 종류" option={['진료', '검진', '기타']} />
         <SubTitle>시간 설정</SubTitle>
         <DateBox>
@@ -35,6 +40,24 @@ const Reservation = () => {
 };
 
 export default Reservation;
+
+const INPUT_DATA = [
+  {
+    type: 'text',
+    placeholder: '이름을 입력해주세요.',
+    name: 'name',
+  },
+  {
+    type: 'tel',
+    placeholder: '휴대폰 번호를 입력해주세요.',
+    name: 'phone',
+  },
+  {
+    type: 'email',
+    placeholder: '이메일을 입력해주세요.',
+    name: 'email',
+  },
+];
 
 const Form = styled.form`
   display: flex;
