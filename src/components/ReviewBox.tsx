@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { useRecoilValue } from 'recoil';
 import globalState from '../recoil/atom';
-
 import InputBox from './InputBox';
 import Button from './Button';
 import Result from './Result';
 import { SearchType, DefaultType } from '../types';
-
 interface Props {
   searchResult: SearchType;
   handleInput: React.ChangeEventHandler<HTMLInputElement>;
@@ -18,7 +15,6 @@ interface Props {
   ) => void;
   checkHandler: () => void;
 }
-
 const ReviewBox = ({
   searchResult,
   handleInput,
@@ -26,7 +22,6 @@ const ReviewBox = ({
   checkHandler,
 }: Props) => {
   const globalAtom = useRecoilValue(globalState);
-
   return (
     <>
       <Form onSubmit={event => handleSerch(event, globalAtom)}>
@@ -50,9 +45,7 @@ const ReviewBox = ({
     </>
   );
 };
-
 export default ReviewBox;
-
 const Form = styled.form`
   position: relative;
   display: flex;
@@ -60,28 +53,24 @@ const Form = styled.form`
   align-items: center;
   flex-direction: column;
   gap: 15px;
+  padding-bottom: 60px;
 `;
-
 const Title = styled.span`
   display: flex;
   align-items: center;
   width: 350px;
   height: 25px;
-
   font-weight: 500;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.6);
 `;
-
 const SubTitle = styled(Title)`
   font-size: 14px;
 `;
-
 const ButtonWapper = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
 `;
-
 const CloseButton = styled.div`
   position: absolute;
   top: 0%;
@@ -89,7 +78,6 @@ const CloseButton = styled.div`
   font-size: 30px;
   cursor: pointer;
 `;
-
 const INPUT_DATA = [
   {
     type: 'text',
