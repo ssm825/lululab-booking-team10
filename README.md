@@ -5,7 +5,7 @@
 - 진행기간 : 10/07 ~ 10/10
 - 과제주관 : lululab
 - 참여명단 : 정훈조, 서수민 장종현
-- DEMO : [DEMO]()
+- DEMO : [DEMO](https://sensational-strudel-86bb09.netlify.app/)
   <br/>
   <br/>
 
