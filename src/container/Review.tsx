@@ -8,7 +8,7 @@ interface ReviewProps {
   checkHandler: () => void;
 }
 
-const Review = (props: ReviewProps) => {
+const Review = ({ checkHandler }: ReviewProps) => {
   const { searchResult, handleInput, handleSerch } = useSearch();
 
   return (
@@ -17,6 +17,7 @@ const Review = (props: ReviewProps) => {
         searchResult={searchResult}
         handleInput={handleInput}
         handleSerch={handleSerch}
+        checkHandler={checkHandler}
       />
     </Modal>
   );

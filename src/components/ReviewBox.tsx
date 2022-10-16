@@ -16,15 +16,22 @@ interface Props {
     event: React.FormEvent<HTMLFormElement>,
     globalAtom: DefaultType[]
   ) => void;
+  checkHandler: () => void;
 }
 
-const ReviewBox = ({ searchResult, handleInput, handleSerch }: Props) => {
+const ReviewBox = ({
+  searchResult,
+  handleInput,
+  handleSerch,
+  checkHandler,
+}: Props) => {
   const globalAtom = useRecoilValue(globalState);
 
   return (
     <>
       <Form onSubmit={event => handleSerch(event, globalAtom)}>
         <Title>조회</Title>
+        <CloseButton onClick={checkHandler}>×</CloseButton>
         {INPUT_DATA.map(item => (
           <InputBox
             key={item.placeholder}
@@ -47,6 +54,7 @@ const ReviewBox = ({ searchResult, handleInput, handleSerch }: Props) => {
 export default ReviewBox;
 
 const Form = styled.form`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,6 +80,14 @@ const SubTitle = styled(Title)`
 const ButtonWapper = styled.div`
   position: absolute;
   bottom: 20px;
+`;
+
+const CloseButton = styled.div`
+  position: absolute;
+  top: 0%;
+  right: 0px;
+  font-size: 30px;
+  cursor: pointer;
 `;
 
 const INPUT_DATA = [
