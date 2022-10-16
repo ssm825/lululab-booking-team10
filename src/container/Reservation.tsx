@@ -4,16 +4,34 @@ import InputBox from '../components/InputBox';
 import styled from 'styled-components';
 import Modal from '../components/Modal';
 import SelectBox from '../components/SelectBox';
+import useRegistration from '../hooks/useRegistration';
+import { useRecoilValue } from 'recoil';
+import globalState from '../recoil/atom';
 
 interface ReservationProp {
-  selectDate: string | undefined;
+  selectDate: string;
   reserveHandler: () => void;
 }
 
 const Reservation = ({ selectDate, reserveHandler }: ReservationProp) => {
+  const {
+    handleInput,
+    handleCategory,
+    handleTime,
+    handleReservation,
+    category,
+    time,
+  } = useRegistration();
+
+  const globalAtom = useRecoilValue(globalState);
+
   return (
     <Modal>
-      <Form>
+      <Form
+        onSubmit={event =>
+          handleReservation(event, globalAtom, selectDate, reserveHandler)
+        }
+      >
         <Title>예약</Title>
         {INPUT_DATA.map(item => (
           <InputBox
@@ -21,24 +39,34 @@ const Reservation = ({ selectDate, reserveHandler }: ReservationProp) => {
             type={item.type}
             placeholder={item.placeholder}
             name={item.name}
+            handleInput={handleInput}
           />
         ))}
-        <SelectBox title="예약 종류" option={['진료', '검진', '기타']} />
+        <SelectBox
+          title="예약 종류"
+          option={['진료', '검진', '기타']}
+          handleCategory={handleCategory}
+          category={category}
+        />
         <SubTitle>시간 설정</SubTitle>
         <DateBox>
-          <SelectedDate>10.15 (토)</SelectedDate>
+          <SelectedDate>
+            {`${selectDate?.split('-')[1]}월 ${selectDate?.split('-')[2]}일`}
+          </SelectedDate>
           <SelectedTime>
             <SelectBox
               title="시간 선택"
-              option={['11:00', '13:00', '14:00', '15:00']}
+              option={TIME_DATA}
+              handleTime={handleTime}
+              time={time}
             />
           </SelectedTime>
         </DateBox>
+        <ButtonWapper>
+          <Button title="예약" />
+          <Button title="취소" reserveHandler={reserveHandler} />
+        </ButtonWapper>
       </Form>
-      <ButtonWapper>
-        <Button title="예약" />
-        <Button title="취소" reserveHandler={reserveHandler} />
-      </ButtonWapper>
     </Modal>
   );
 };
@@ -61,6 +89,17 @@ const INPUT_DATA = [
     placeholder: '이메일을 입력해주세요.',
     name: 'email',
   },
+];
+
+const TIME_DATA = [
+  '09:00',
+  '10:00',
+  '11:00',
+  '13:00',
+  '14:00',
+  '15:00',
+  '16:00',
+  '17:00',
 ];
 
 const Form = styled.form`
@@ -98,7 +137,7 @@ const DateBox = styled.div`
 `;
 
 const SelectedDate = styled.div`
-  width: 25%;
+  width: 27%;
   cursor: default;
   ${({ theme }) => theme.inputStyle};
 `;
@@ -110,6 +149,10 @@ const ButtonWapper = styled.div`
   display: flex;
   justify-content: center;
 
-  margin-top: 120px;
+  margin-top: 200px;
   padding: 10px 0;
+
+  button {
+    margin: 0 5px;
+  }
 `;

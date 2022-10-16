@@ -31,7 +31,7 @@ const Calendar: React.FC = () => {
   };
   return (
     <DashboardContainer>
-      {reserve && (
+      {reserve && selectDate && (
         <Reservation selectDate={selectDate} reserveHandler={reserveHandler} />
       )}
       {check && <Review checkHandler={checkHandler} />}
