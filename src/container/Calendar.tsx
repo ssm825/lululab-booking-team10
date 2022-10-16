@@ -96,4 +96,10 @@ const CheckReservationButton = styled.div`
   border: none;
   border-radius: 25px;
   cursor: pointer;
+
+  :hover {
+    color: rgb(44, 62, 80);
+    background-color: #ffffff;
+    border: 1px solid rgb(44, 62, 80);
+  }
 `;
