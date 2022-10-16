@@ -15,7 +15,7 @@ const Calendar: React.FC = () => {
   const reserved = useRecoilValue(globalState);
   const Data = reserved.map(function (item) {
     const obj = {
-      title: `${item.user_name} ${item.booking_time} ${item.categories}`,
+      title: `${item.booking_time} ${item.user_name} ${item.categories}`,
       start: item.booking_date,
       end: item.booking_date,
     };
@@ -44,11 +44,15 @@ const Calendar: React.FC = () => {
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
         dayMaxEventRows={true}
-        moreLinkClick="popover"
+        // views: {
+        //   timeGrid: {
+        //     dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
+        //   }
+        // moreLinkClick="popover"
         events={Data}
         eventColor="#EFB33F"
         selectable={true}
-        editable={true}
+        // editable={true}
         dateClick={(info: DateClickArg) => {
           setSelectDate(info.dateStr);
           reserveHandler();
@@ -58,14 +62,13 @@ const Calendar: React.FC = () => {
         <CheckReservationButton onClick={checkHandler}>
           예약조회
         </CheckReservationButton>
-        <ReserveButton onClick={reserveHandler}>예약하기</ReserveButton>
       </ButtonWrapper>
     </DashboardContainer>
   );
 };
 export default Calendar;
 const DashboardContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const ModalWapper = styled.div`
@@ -76,18 +79,21 @@ const ModalWapper = styled.div`
 
 const ButtonWrapper = styled.div`
   width: 70%;
-  display: flex;
-  justify-content: space-between;
+  margin: 0 auto;
 `;
 
 const CheckReservationButton = styled.div`
-  width: 50px;
-  height: 25px;
+  width: 100px;
+  height: 35px;
+  margin: 5px auto;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 35px;
+  background-color: rgb(44, 62, 80);
+  color: #ffffff;
+  border: none;
   border-radius: 25px;
-`;
-
-const ReserveButton = styled.div`
-  width: 50px;
-  height: 25px;
-  border-radius: 25px;
+  cursor: pointer;
 `;
