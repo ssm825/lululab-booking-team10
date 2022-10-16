@@ -24,7 +24,7 @@ const SelectBox = ({
     setToggle(!toggle);
   };
 
-  const showOption = (event: React.MouseEvent<HTMLElement>, title: string) => {
+  const showOption = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
     event.preventDefault();
     const e = String(event.currentTarget.innerText);
@@ -62,7 +62,7 @@ const SelectBox = ({
           <Option
             key={data.length}
             onClick={event => {
-              showOption(event, title);
+              showOption(event);
             }}
             name={data}
           >
