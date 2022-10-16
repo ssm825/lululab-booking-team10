@@ -23,4 +23,6 @@ const Main = () => {
 
 export default Main;
 
-const Wapper = styled.div``;
+const Wapper = styled.div`
+  max-width: 1256px;
+`;

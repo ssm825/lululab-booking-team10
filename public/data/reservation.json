@@ -69,7 +69,7 @@
       "user_name": "전지현",
       "user_phone": "010-6570-4052",
       "booking_date": "2022-10-14",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "검진"
     },
     {
@@ -141,7 +141,7 @@
       "user_name": "마동석",
       "user_phone": "010-6709-4784",
       "booking_date": "2022-10-13",
-      "booking_time": "9:00",
+      "booking_time": "009:00",
       "categories": "진료"
     },
     {
@@ -197,7 +197,7 @@
       "user_name": "김태연",
       "user_phone": "010-6161-3718",
       "booking_date": "2022-10-21",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "진료"
     },
     {
@@ -205,7 +205,7 @@
       "user_name": "정수정",
       "user_phone": "010-4902-7949",
       "booking_date": "2022-11-07",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "검진"
     },
     {
@@ -229,7 +229,7 @@
       "user_name": "이수만",
       "user_phone": "010-6454-8573",
       "booking_date": "2022-10-20",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "진료"
     },
     {
@@ -373,7 +373,7 @@
       "user_name": "정훈조",
       "user_phone": "010-6177-9525",
       "booking_date": "2022-10-24",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "기타"
     },
     {
@@ -405,7 +405,7 @@
       "user_name": "이지은",
       "user_phone": "010-6723-8851",
       "booking_date": "2022-10-10",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "진료"
     },
     {
@@ -517,7 +517,7 @@
       "user_name": "김전일",
       "user_phone": "010-3544-4021",
       "booking_date": "2022-10-26",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "진료"
     },
     {
@@ -541,7 +541,7 @@
       "user_name": "엄정화",
       "user_phone": "010-6819-0749",
       "booking_date": "2022-11-09",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "기타"
     },
     {
@@ -637,7 +637,7 @@
       "user_name": "남궁민",
       "user_phone": "010-6555-4076",
       "booking_date": "2022-11-08",
-      "booking_time": "9:00",
+      "booking_time": "09:00",
       "categories": "진료"
     }
   ]
