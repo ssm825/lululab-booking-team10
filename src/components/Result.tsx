@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SearchType } from '../types';
+import { SearchType } from 'types';
 
 const Result = ({ searchResult }: { searchResult: SearchType }) => {
   const { isResult, result } = searchResult;

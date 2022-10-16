@@ -4,7 +4,7 @@ import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
-import globalState from '../recoil/atom';
+import globalState from 'recoil/atom';
 import Reservation from './Reservation';
 import Review from './Review';
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import Button from '../components/Button';
-import InputBox from '../components/InputBox';
+import Button from 'components/Button';
+import InputBox from 'components/InputBox';
 import styled from 'styled-components';
-import Modal from '../components/Modal';
-import SelectBox from '../components/SelectBox';
-import useRegistration from '../hooks/useRegistration';
+import Modal from 'components/Modal';
+import SelectBox from 'components/SelectBox';
+import useRegistration from 'hooks/useRegistration';
 import { useRecoilValue } from 'recoil';
-import globalState from '../recoil/atom';
+import globalState from 'recoil/atom';
 
 interface ReservationProp {
   selectDate: string;

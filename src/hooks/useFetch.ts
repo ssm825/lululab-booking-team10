@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import fetch from '../api/fetch';
-import { DefaultType } from '../types';
+import fetch from 'api/fetch';
+import { DefaultType } from 'types';
 
 const initializeState: { results: DefaultType[]; loading: boolean } = {
   results: [],

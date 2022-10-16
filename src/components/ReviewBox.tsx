@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
-import globalState from '../recoil/atom';
+import globalState from 'recoil/atom';
 import InputBox from './InputBox';
 import Button from './Button';
 import Result from './Result';
-import { SearchType, DefaultType } from '../types';
+import { SearchType, DefaultType } from 'types';
 interface Props {
   searchResult: SearchType;
   handleInput: React.ChangeEventHandler<HTMLInputElement>;

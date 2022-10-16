@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import globalState from '../recoil/atom';
-import { DefaultType } from './../types/index';
+import globalState from 'recoil/atom';
+import { DefaultType } from 'types';
 
 const valueState = {
   name: '',
