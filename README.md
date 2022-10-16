@@ -2,7 +2,7 @@
 
 ## # 프로젝트 개요
 
-- 진행기간 : 10/07 ~ 10/10
+- 진행기간 : 10/15 ~ 10/17
 - 과제주관 : lululab
 - 참여명단 : 정훈조, 서수민 장종현
 - DEMO : [DEMO](https://sensational-strudel-86bb09.netlify.app/)
@@ -258,7 +258,7 @@ branch
       "user_phone": "010-1234-5678",
       "booking_date": "2022-10-01",
       "booking_time": "10:00",
-      "categories": ["진료"]
+      "categories": "진료"
     },
     {
       "id": 220102,
@@ -266,7 +266,7 @@ branch
       "user_phone": "010-1234-5678",
       "booking_date": "2022-10-02",
       "booking_time": "13:00",
-      "categories": ["진료"]
+      "categories": "검진"
     },
     {
       "id": 220103,
@@ -274,8 +274,20 @@ branch
       "user_phone": "010-1234-5678",
       "booking_date": "2022-10-02",
       "booking_time": "15:00",
-      "categories": ["진료"]
+      "categories": "기타"
     }
   ]
 }
 ```
+
+<h2>고민했던 부분</h2>
+
+<p>장종현 : calendar상에 출력되는 events중 categories(검진, 진료, 기타)를 보다 직관적이게 색깔로 구분 하고 싶었지만, fullcalendar library를 빠르게 익히다보니 디테일하게 접근하지 못한 것이 아쉽다.</p>
+
+<br/>
+
+<p>서수민 : </p>
+
+<br/>
+
+<p>정훈조 : 개발경험을 향상 시킬 수 있는 TypeScript 및  전역 상태관리의 Recoil 사용함으로 더 생산적인 개발을 할수 있었습니다. 또한 팀 내 트러블 슈팅 발생 시 팀원 모두 문제 해결을 위해 소통 하였고 즐거운 경험 이었습니다.</p>
