@@ -3,7 +3,6 @@ import Button from '../components/Button';
 import InputBox from '../components/InputBox';
 import styled from 'styled-components';
 import Modal from '../components/Modal';
-import theme from '../styles/theme';
 import SelectBox from '../components/SelectBox';
 
 const Reservation = () => {
