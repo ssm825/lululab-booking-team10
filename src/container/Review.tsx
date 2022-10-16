@@ -4,7 +4,11 @@ import Modal from '../components/Modal';
 import ReviewBox from '../components/ReviewBox';
 import useSearch from '../hooks/useSearch';
 
-const Review = () => {
+interface ReviewProps {
+  checkHandler: () => void;
+}
+
+const Review = (props: ReviewProps) => {
   const { searchResult, handleInput, handleSerch } = useSearch();
 
   return (
