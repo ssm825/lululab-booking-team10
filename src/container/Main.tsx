@@ -6,6 +6,7 @@ import globalState from '../recoil/atom';
 
 import Loader from '../components/Loader';
 import Review from './Review';
+import Reservation from './Reservation';
 
 const Main = () => {
   const { results, loading } = useFetch();

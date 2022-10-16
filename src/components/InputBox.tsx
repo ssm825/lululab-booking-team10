@@ -5,7 +5,7 @@ interface Props {
   type: string;
   placeholder: string;
   name: string;
-  handleInput: React.ChangeEventHandler<HTMLInputElement>;
+  handleInput?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const InputBox = ({ type, placeholder, name, handleInput }: Props) => {
