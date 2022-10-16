@@ -1,1 +1,1 @@
-export const URL = '/data/reservation.json';
+export const URL = 'https://my-json-server.typicode.com/hoonjo1/demo/data';
