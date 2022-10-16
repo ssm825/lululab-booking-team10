@@ -58,6 +58,7 @@ const useRegistration = () => {
       categories: category,
     };
     setUser(prev => [...prev, userInfo]);
+    alert(`${values.name}님 예약 완료되셨습니다!`);
     reserveHandler();
   };
 

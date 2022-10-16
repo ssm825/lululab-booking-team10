@@ -27,13 +27,11 @@ const SelectBox = ({
   const showOption = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation();
     event.preventDefault();
-    const e = String(event.currentTarget.innerText);
-    if (handleCategory) {
-      handleCategory(e);
-    }
-    if (handleTime) {
-      handleTime(e);
-    }
+
+    const optionText = String(event.currentTarget.innerText);
+    handleCategory && handleCategory(optionText);
+    handleTime && handleTime(optionText);
+
     setToggle(!toggle);
   };
 
@@ -78,9 +76,9 @@ export default SelectBox;
 
 const Continer = styled.div`
   width: 100%;
-  ${({ theme }) => theme.inputStyle};
-  z-index: 10;
   user-select: none;
+  z-index: 10;
+  ${({ theme }) => theme.inputStyle};
 `;
 const TitleContent = styled.div`
   display: flex;
