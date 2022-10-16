@@ -14,18 +14,17 @@
 - 기술스택 : React / TypeScript / Recoil
 
 - 동일한 상태값으로 캘린더 / 예약 / 조회 사용함으로 전역으로 관리하고자 recoil 사용
-  - 마운트시 useFetch 훅 사용 목데이터 fetch 후 전역 상태인 globalState 업데이트
+  - 마운트시 상수 데이터 전역 상태인 globalState 업데이트
   - 해당 state가 필요한 컴포넌트에서 호출하여 사용
 
 ```js
 ///Main.tsx
 
 const Main = () => {
-  const { results, loading } = useFetch();
   const setGlobalAtom = useSetRecoilState(globalState);
 
   useEffect(() => {
-    setGlobalAtom(results);
+    setGlobalAtom(DATA.data);
   }, [loading]);
 
   return (
