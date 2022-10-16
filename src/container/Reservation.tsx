@@ -6,7 +6,12 @@ import Modal from '../components/Modal';
 import theme from '../styles/theme';
 import SelectBox from '../components/SelectBox';
 
-const Reservation = () => {
+interface ReservationProp {
+  selectDate: string | undefined;
+  ReserveHandler: () => void;
+}
+
+const Reservation = (props: ReservationProp) => {
   return (
     <Modal>
       <Form>
@@ -33,7 +38,9 @@ const Reservation = () => {
       </Form>
       <ButtonWapper>
         <Button title="예약" />
-        <Button title="취소" />
+        <CloseButton title="취소" onClick={props.ReserveHandler}>
+          취소
+        </CloseButton>
       </ButtonWapper>
     </Modal>
   );
@@ -108,8 +115,15 @@ const ButtonWapper = styled.div`
 
   margin-top: 120px;
   padding: 10px 0;
-
-  button {
-    margin: 0 5px;
-  }
 `;
+
+const CloseButton = styled.div`
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+  /* margin: 0 5px; */
+`;
+
+// button {
+//   margin: 0 5px;
+// }
