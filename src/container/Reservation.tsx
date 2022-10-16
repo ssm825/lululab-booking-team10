@@ -7,10 +7,10 @@ import SelectBox from '../components/SelectBox';
 
 interface ReservationProp {
   selectDate: string | undefined;
-  ReserveHandler: () => void;
+  reserveHandler: () => void;
 }
 
-const Reservation = (props: ReservationProp) => {
+const Reservation = ({ selectDate, reserveHandler }: ReservationProp) => {
   return (
     <Modal>
       <Form>
@@ -37,9 +37,7 @@ const Reservation = (props: ReservationProp) => {
       </Form>
       <ButtonWapper>
         <Button title="예약" />
-        <CloseButton title="취소" onClick={props.ReserveHandler}>
-          취소
-        </CloseButton>
+        <Button title="취소" reserveHandler={reserveHandler} />
       </ButtonWapper>
     </Modal>
   );
@@ -115,14 +113,3 @@ const ButtonWapper = styled.div`
   margin-top: 120px;
   padding: 10px 0;
 `;
-
-const CloseButton = styled.div`
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
-  /* margin: 0 5px; */
-`;
-
-// button {
-//   margin: 0 5px;
-// }
