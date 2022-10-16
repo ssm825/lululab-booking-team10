@@ -3,10 +3,8 @@ import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import useFetch from '../hooks/useFetch';
 import globalState from '../recoil/atom';
-
 import Loader from '../components/Loader';
-import Review from './Review';
-import Reservation from './Reservation';
+import Calendar from './Calendar';
 
 const Main = () => {
   const { results, loading } = useFetch();
@@ -17,14 +15,12 @@ const Main = () => {
   }, [loading]);
 
   return (
-    <Wapper>{loading && results.length === 0 ? <Loader /> : <Review />}</Wapper>
+    <Wapper>
+      {loading && results.length === 0 ? <Loader /> : <Calendar />}
+    </Wapper>
   );
 };
 
 export default Main;
 
-const Wapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+const Wapper = styled.div``;
