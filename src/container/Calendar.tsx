@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import globalState from '../recoil/atom';
 import Reservation from './Reservation';
+import Review from './Review';
 
 const Calendar: React.FC = () => {
   const [check, setCheck] = useState<boolean>(false);
@@ -22,7 +23,7 @@ const Calendar: React.FC = () => {
   });
 
   const CheckHandler = () => {
-    setCheck(true);
+    setCheck(prev => !prev);
   };
 
   const ReserveHandler = () => {
@@ -31,8 +32,9 @@ const Calendar: React.FC = () => {
   return (
     <DashboardContainer>
       {reserve && (
-        <Reservation selectDate={selectDate} ReserveHandler={ReserveHandler} />
+        <Reservation selectDate={selectDate} reserveHandler={ReserveHandler} />
       )}
+      {check && <Review checkHandler={CheckHandler} />}
       <FullCalendar
         locale={'ko'}
         plugins={[dayGridPlugin, interactionPlugin]}
