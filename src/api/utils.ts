@@ -1,1 +1,1 @@
-export const URL = 'data';
+export const URL = '/data/data.json';
