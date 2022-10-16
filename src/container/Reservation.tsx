@@ -3,10 +3,14 @@ import Button from '../components/Button';
 import InputBox from '../components/InputBox';
 import styled from 'styled-components';
 import Modal from '../components/Modal';
-import theme from '../styles/theme';
 import SelectBox from '../components/SelectBox';
 
-const Reservation = () => {
+interface ReservationProp {
+  selectDate: string | undefined;
+  reserveHandler: () => void;
+}
+
+const Reservation = ({ selectDate, reserveHandler }: ReservationProp) => {
   return (
     <Modal>
       <Form>
@@ -33,7 +37,7 @@ const Reservation = () => {
       </Form>
       <ButtonWapper>
         <Button title="예약" />
-        <Button title="취소" />
+        <Button title="취소" reserveHandler={reserveHandler} />
       </ButtonWapper>
     </Modal>
   );
@@ -108,8 +112,4 @@ const ButtonWapper = styled.div`
 
   margin-top: 120px;
   padding: 10px 0;
-
-  button {
-    margin: 0 5px;
-  }
 `;

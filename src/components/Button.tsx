@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 interface Props {
   title: string;
+  reserveHandler?: () => void;
 }
 
-const Button = ({ title }: Props) => {
+const Button = ({ title, reserveHandler }: Props) => {
   return (
-    <Wapper>
+    <Wapper onClick={reserveHandler && reserveHandler}>
       <Content>
         <Title>{title}</Title>
       </Content>
